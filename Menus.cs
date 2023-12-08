@@ -1,6 +1,6 @@
 using System.Transactions;
 
-public class PrintMenus
+public class Menus
 {
     public static void PrintMainMenu()
     {
