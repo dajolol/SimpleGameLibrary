@@ -9,7 +9,6 @@ internal class Program
         (int x, int y) = Console.GetCursorPosition();
         int option = 1;
         string currentMarker = "> \u001b[32m";
-        ConsoleKeyInfo keyPressed;
         bool inMenu = true;
 
         while (inMenu)
@@ -18,30 +17,16 @@ internal class Program
 
             Menus.PrintMainMenu(option, currentMarker);
 
+            ConsoleKeyInfo keyPressed;
             keyPressed = Console.ReadKey(false);
-
             switch (keyPressed.Key)
             {
                 case ConsoleKey.UpArrow:
-                    if (option == 1)
-                    {
-                        option = 5;
-                    }
-                    else
-                    {
-                        option--;
-                    }
+                    option = option == 1 ? 5 : option - 1;
                     break;
 
                 case ConsoleKey.DownArrow:
-                    if (option == 5)
-                    {
-                        option = 1;
-                    }
-                    else
-                    {
-                        option++;
-                    }
+                    option = option == 5 ? 1 : option + 1;
                     break;
 
                 case ConsoleKey.Enter:
