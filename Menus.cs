@@ -2,8 +2,8 @@ using System.Transactions;
 
 public class Menus
 {
-    private string currentMarker = "> \u001b[32m";
-    public static void PrintMainMenu(int option, string currentMarker)
+    static readonly string currentMarker = "> \u001b[32m";
+    public static void PrintMainMenu(int option)
     {
         Console.Clear();
         Console.WriteLine("################# GAME LIBRARY #################\n");
@@ -14,13 +14,13 @@ public class Menus
         Console.WriteLine("------------------------------------------------");
         string[] menu = ["1. Search and sort by category in the library", "2. Handle games", "3. Handle Consoles", "4. Handle Genres", "5. Exit program"];
 
-        ColorMenuText(currentMarker, menu, option);
+        ColorMenuText(menu, option);
 
         Console.WriteLine("\n################################################");
         Console.ResetColor();
     }
 
-    public static void ColorMenuText(string currentMarker, string[] menu, int option)
+    public static void ColorMenuText(string[] menu, int option)
     {
         for (int i = 1; i <= menu.Length; i++)
         {

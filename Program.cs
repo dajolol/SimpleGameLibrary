@@ -8,14 +8,13 @@ internal class Program
         Console.CursorVisible = false;
         (int x, int y) = Console.GetCursorPosition();
         int option = 1;
-        string currentMarker = "> \u001b[32m";
         bool inMenu = true;
 
         while (inMenu)
         {
             Console.SetCursorPosition(x, y);
 
-            Menus.PrintMainMenu(option, currentMarker);
+            Menus.PrintMainMenu(option);
 
             ConsoleKeyInfo keyPressed;
             keyPressed = Console.ReadKey(false);
