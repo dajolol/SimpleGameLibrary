@@ -3,7 +3,9 @@ using System.Transactions;
 public class Menus
 {
     static readonly string currentMenuMarker = "> \u001b[32m";
-    public static void PrintMainMenu(int option)
+
+    public static int currentOption = 1;
+    public static void PrintMainMenu()
     {
         Console.Clear();
         Console.WriteLine("################# GAME LIBRARY #################\n");
@@ -14,17 +16,17 @@ public class Menus
         Console.WriteLine("------------------------------------------------");
         string[] menu = ["1. Search and sort by category in the library", "2. Handle games", "3. Handle Consoles", "4. Handle Genres", "5. Exit program"];
 
-        ColorMenuText(menu, option);
+        ColorMenuText(menu);
 
         Console.WriteLine("\n################################################");
         Console.ResetColor();
     }
 
-    public static void ColorMenuText(string[] menu, int option)
+    public static void ColorMenuText(string[] menu)
     {
         for (int i = 1; i <= menu.Length; i++)
         {
-            if (option == i)
+            if (currentOption == i)
             {
                 Console.WriteLine($"{currentMenuMarker}{menu[i - 1]}\u001b[0m");
             }

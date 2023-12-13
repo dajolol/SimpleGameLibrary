@@ -7,25 +7,24 @@ internal class Program
         Console.Clear();
         Console.CursorVisible = false;
         (int x, int y) = Console.GetCursorPosition();
-        int option = 1;
         bool inMenu = true;
 
         do
         {
             Console.SetCursorPosition(x, y);
 
-            Menus.PrintMainMenu(option);
+            Menus.PrintMainMenu();
 
             ConsoleKeyInfo keyPressed;
             keyPressed = Console.ReadKey(false);
             switch (keyPressed.Key)
             {
                 case ConsoleKey.UpArrow:
-                    option = option == 1 ? 5 : option - 1;
+                    Menus.currentOption = Menus.currentOption == 1 ? 5 : Menus.currentOption - 1;
                     break;
 
                 case ConsoleKey.DownArrow:
-                    option = option == 5 ? 1 : option + 1;
+                    Menus.currentOption = Menus.currentOption == 5 ? 1 : Menus.currentOption + 1;
                     break;
 
                 case ConsoleKey.Enter:
