@@ -8,7 +8,7 @@ internal class Program
         Console.CursorVisible = false;
         (int x, int y) = Console.GetCursorPosition();
         int option = 1;
-        //bool inMenu = true;
+        bool inMenu = true;
 
         do
         {
@@ -35,6 +35,6 @@ internal class Program
                     Environment.Exit(0);
                     break;
             }
-        } while (true);
+        } while (inMenu);
     }
 }
