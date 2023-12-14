@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 
 internal class Program
 {
@@ -11,8 +12,10 @@ internal class Program
 
         do
         {
+            PrintMenus.PrintDefaultMenuText();
+            PrintMenus.PrintMainMenu();
             MenusLogic.GetCursorInput(x, y);
         }
-        while (inMenu);
+        while (true);
     }
 }

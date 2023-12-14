@@ -6,11 +6,11 @@ class MenusLogic
 
     public static int currentOption = 1;
 
+    public static string[] currentMenu;
+
     public static void GetCursorInput(int x, int y)
     {
         Console.SetCursorPosition(x, y);
-
-        PrintMenus.PrintMainMenu();
 
         ConsoleKeyInfo keyPressed;
         keyPressed = Console.ReadKey(false);
@@ -33,17 +33,17 @@ class MenusLogic
         }
     }
 
-    public static void ColorMenuText(string[] menu)
+    public static void ColorMenuText(string[] currentMenu)
     {
-        for (int i = 1; i <= menu.Length; i++)
+        for (int i = 1; i <= currentMenu.Length; i++)
         {
             if (currentOption == i)
             {
-                Console.WriteLine($"{currentMenuMarker}{menu[i - 1]}\u001b[0m");
+                Console.WriteLine($"{currentMenuMarker}{currentMenu[i - 1]}\u001b[0m");
             }
             else
             {
-                Console.WriteLine($"{menu[i - 1]}  \u001b[0m");
+                Console.WriteLine($"{currentMenu[i - 1]}  \u001b[0m");
             }
         }
     }
