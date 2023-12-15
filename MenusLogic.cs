@@ -8,7 +8,7 @@ class MenusLogic
 
     public static string[] currentMenu;
 
-    public static void GetCursorInput(int x, int y)
+    public static bool GetCursorInput(int x, int y)
     {
         Console.SetCursorPosition(x, y);
 
@@ -17,20 +17,22 @@ class MenusLogic
         switch (keyPressed.Key)
         {
             case ConsoleKey.UpArrow:
-                currentOption = currentOption == 1 ? 5 : currentOption - 1;
+                currentOption = currentOption == 1 ? currentMenu.Length : currentOption - 1;
                 break;
 
             case ConsoleKey.DownArrow:
-                currentOption = currentOption == 5 ? 1 : currentOption + 1;
+                currentOption = currentOption == currentMenu.Length ? 1 : currentOption + 1;
                 break;
 
             case ConsoleKey.Enter:
-                break;
+                return true;
 
             case ConsoleKey.F12:
+                Console.Clear();
                 Environment.Exit(0);
                 break;
         }
+        return false;
     }
 
     public static void ColorMenuText(string[] currentMenu)

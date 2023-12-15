@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 
 internal class Program
@@ -8,14 +9,17 @@ internal class Program
         Console.Clear();
         Console.CursorVisible = false;
         (int x, int y) = Console.GetCursorPosition();
-        bool inMenu = true;
+        bool inRootMenu = true;
 
-        do
+        while (inRootMenu)
         {
             PrintMenus.PrintDefaultMenuText();
             PrintMenus.PrintMainMenu();
-            MenusLogic.GetCursorInput(x, y);
+            bool inSubmenu = MenusLogic.GetCursorInput(x, y);
+            while (inSubmenu)
+            {
+                MenusLogic.GetCursorInput(x, y);
+            }
         }
-        while (true);
     }
 }
