@@ -8,10 +8,10 @@ class MenusLogic
 
     public static string[] currentMenu;
 
-    public static void GetCursorInput(int x, int y)
+    public static int GetCursorInput(int x, int y)
     {
         Console.SetCursorPosition(x, y);
-
+        int neverUsed = 100;
         ConsoleKeyInfo keyPressed;
         keyPressed = Console.ReadKey(true);
         switch (keyPressed.Key)
@@ -25,16 +25,17 @@ class MenusLogic
                 break;
 
             case ConsoleKey.Enter:
-                break;
+                return currentOption;
 
             case ConsoleKey.F12:
                 Console.Clear();
                 Environment.Exit(0);
                 break;
         }
+        return neverUsed;
     }
 
-    public static void ColorMenuText(string[] currentMenu)
+    public static void PrintAndColorMenu(string[] currentMenu)
     {
         for (int i = 1; i <= currentMenu.Length; i++)
         {

@@ -18,7 +18,7 @@ class PrintMenus
 
         Console.SetCursorPosition(originalLeft, originalTop);
     }
-    public static void PrintMainMenu()
+    public static string[] PrintMainMenu()
     {
         string[] menu = ["1. Search and sort by category in the library",
                          "2. Handle games",
@@ -28,12 +28,12 @@ class PrintMenus
                         ];
 
         MenusLogic.currentMenu = menu;
-        MenusLogic.ColorMenuText(MenusLogic.currentMenu);
 
         Console.ResetColor();
+        return menu;
     }
 
-    public static void PrintSearchAndSortCategoryMenu()
+    public static void SetSearchAndSortCategoryMenu()
     {
         string[] menu = ["1. Search and sort by title",
                          "2. Search and sort by console",
@@ -43,7 +43,6 @@ class PrintMenus
                         ];
 
         MenusLogic.currentMenu = menu;
-        MenusLogic.ColorMenuText(MenusLogic.currentMenu);
 
         Console.ResetColor();
     }
