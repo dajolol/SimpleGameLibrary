@@ -30,7 +30,7 @@ class PrintMenus
         MenusLogic.currentMenu = menu;
         MenusLogic.ColorMenuText(MenusLogic.currentMenu);
 
-        Console.WriteLine("\n################################################");
+        // Console.WriteLine("\n################################################");
         Console.ResetColor();
     }
 }

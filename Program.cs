@@ -9,17 +9,12 @@ internal class Program
         Console.Clear();
         Console.CursorVisible = false;
         (int x, int y) = Console.GetCursorPosition();
-        bool inRootMenu = true;
 
-        while (inRootMenu)
+        while (true)
         {
-            PrintMenus.PrintDefaultMenuText();
+            // PrintMenus.PrintDefaultMenuText();
             PrintMenus.PrintMainMenu();
-            bool inSubmenu = MenusLogic.GetCursorInput(x, y);
-            while (inSubmenu)
-            {
-                MenusLogic.GetCursorInput(x, y);
-            }
+            MenusLogic.GetCursorInput(x, y);
         }
     }
 }
