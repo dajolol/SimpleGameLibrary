@@ -13,7 +13,7 @@ class MenusLogic
         Console.SetCursorPosition(x, y);
 
         ConsoleKeyInfo keyPressed;
-        keyPressed = Console.ReadKey(false);
+        keyPressed = Console.ReadKey(true);
         switch (keyPressed.Key)
         {
             case ConsoleKey.UpArrow:

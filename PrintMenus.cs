@@ -30,7 +30,21 @@ class PrintMenus
         MenusLogic.currentMenu = menu;
         MenusLogic.ColorMenuText(MenusLogic.currentMenu);
 
-        // Console.WriteLine("\n################################################");
+        Console.ResetColor();
+    }
+
+    public static void PrintSearchAndSortCategoryMenu()
+    {
+        string[] menu = ["1. Search and sort by title",
+                         "2. Search and sort by console",
+                         "3. Search and sort by genre",
+                         "4. Search and sort by release date",
+                         "5. Go back to main menu"
+                        ];
+
+        MenusLogic.currentMenu = menu;
+        MenusLogic.ColorMenuText(MenusLogic.currentMenu);
+
         Console.ResetColor();
     }
 }
