@@ -9,7 +9,7 @@ internal class Program
         Console.Clear();
         Console.CursorVisible = false;
         (int x, int y) = Console.GetCursorPosition();
-        MenusLogic.currentMenu = PrintMenus.PrintMainMenu();
+        PrintMenus.PrintMainMenu();
         Console.Clear();
 
         while (true)
@@ -36,7 +36,8 @@ internal class Program
                     break;
 
                 case 5:
-                    Console.WriteLine("Menu choice 5");
+                    Console.Clear();
+                    PrintMenus.PrintMainMenu();
                     break;
             }
         }

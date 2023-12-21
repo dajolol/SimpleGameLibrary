@@ -35,7 +35,7 @@ class MenusLogic
         return neverUsed;
     }
 
-    public static void PrintAndColorMenu(string[] currentMenu)
+    public static void PrintColoredMenu(string[] currentMenu)
     {
         for (int i = 1; i <= currentMenu.Length; i++)
         {

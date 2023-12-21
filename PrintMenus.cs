@@ -2,7 +2,7 @@ using System.Transactions;
 
 class PrintMenus
 {
-    public static void PrintDefaultMenuText()
+    public static void PrintDefaultMenuText()  //Currently not in use
     {
         Console.Clear();
         Console.WriteLine("################## GAME LIBRARY ##################\n");
@@ -18,22 +18,44 @@ class PrintMenus
 
         Console.SetCursorPosition(originalLeft, originalTop);
     }
-    public static string[] PrintMainMenu()
+    public static void PrintMainMenu()
     {
-        string[] menu = ["1. Search and sort by category in the library",
-                         "2. Handle games",
-                         "3. Handle Consoles",
-                         "4. Handle Genres",
-                         "5. Exit program"
-                        ];
-
-        MenusLogic.currentMenu = menu;
+        MenusLogic.currentMenu = ["1. Search and sort by category in the library",
+                                  "2. Handle games",
+                                  "3. Handle consoles",
+                                  "4. Handle genres",
+                                  "5. Exit program"
+                                 ];
 
         Console.ResetColor();
-        return menu;
+        ;
     }
 
     public static void SetSearchAndSortCategoryMenu()
+    {
+        MenusLogic.currentMenu = ["1. Search and sort by title",
+                                  "2. Search and sort by console",
+                                  "3. Search and sort by genre",
+                                  "4. Search and sort by release date",
+                                  "5. Go back to main menu"
+                                 ];
+
+        Console.ResetColor();
+    }
+
+    public static void SetHandleGamesMenu()
+    {
+        MenusLogic.currentMenu = ["1. Search and sort by title",
+                                  "2. Search and sort by console",
+                                  "3. Search and sort by genre",
+                                  "4. Search and sort by release date",
+                                  "5. Go back to main menu"
+                                  ];
+
+        Console.ResetColor();
+    }
+
+    public static void SetHandleConsolesMenu()
     {
         string[] menu = ["1. Search and sort by title",
                          "2. Search and sort by console",
