@@ -5,7 +5,7 @@ class MenusLogic
 {
     static readonly string currentMenuMarker = "> \u001b[32m";
 
-    public static int currentOption = 1;
+    public static int currentOption;
 
     public static string[] currentMenu;
 

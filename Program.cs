@@ -21,6 +21,42 @@ internal class Program
                 case 1:
                     Console.Clear();
                     PrintMenus.SetSearchAndSortCategoryMenu();
+                    MenusLogic.PrintColoredMenu(MenusLogic.currentMenu);
+                    switch (MenusLogic.GetCursorInput(x, y))
+                    {
+                        case 1:
+                            Console.Clear();
+                            Console.WriteLine("Alternativ 1");
+                            break;
+                        case 2:
+                            Console.Clear();
+                            Console.WriteLine("Alternativ 2");
+                            break;
+                        case 3:
+                            Console.Clear();
+                            Console.WriteLine("Alternativ 3");
+                            break;
+                        case 4:
+                            Console.Clear();
+                            Console.WriteLine("Alternativ 4");
+                            break;
+                        case 5:
+                            Console.Clear();
+                            Console.WriteLine("Alternativ 5");
+                            break;
+                        case 6:
+                            Console.Clear();
+                            Console.WriteLine("Alternativ 6");
+                            break;
+                        case 7:
+                            Console.Clear();
+                            Console.WriteLine("Alternativ 7");
+                            break;
+                        case 8:
+                            Console.Clear();
+                            Console.WriteLine("Alternativ 8");
+                            break;
+                    }
                     break;
 
                 case 2:

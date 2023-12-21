@@ -41,7 +41,7 @@ class PrintMenus
                                   "5. Search and sort by completed games",
                                   "6. Search and sort by non-completed games",
                                   "7. Search and sort by personal grade",
-                                  ". Go back to main menu"
+                                  "8. Go back to main menu"
                                  ];
 
         Console.ResetColor();
