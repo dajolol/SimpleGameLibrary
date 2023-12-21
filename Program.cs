@@ -24,18 +24,26 @@ internal class Program
                     break;
 
                 case 2:
-                    Console.WriteLine("Menu choice 2");
+                    Console.Clear();
+                    PrintMenus.SetHandleGamesMenu();
                     break;
 
                 case 3:
-                    Console.WriteLine("Menu choice 3");
+                    Console.Clear();
+                    PrintMenus.SetHandleConsolesMenu();
                     break;
 
                 case 4:
-                    Console.WriteLine("Menu choice 4");
+                    Console.Clear();
+                    PrintMenus.SetHandleGenresMenu();
                     break;
 
                 case 5:
+                    Console.Clear();
+                    PrintMenus.SetHandleBacklogMenu();
+                    break;
+
+                case 100:
                     Console.Clear();
                     PrintMenus.PrintMainMenu();
                     break;
