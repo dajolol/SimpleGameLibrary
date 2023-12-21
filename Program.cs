@@ -14,7 +14,7 @@ internal class Program
 
         while (true)
         {
-            MenusLogic.PrintAndColorMenu(MenusLogic.currentMenu);
+            MenusLogic.PrintColoredMenu(MenusLogic.currentMenu);
 
             switch (MenusLogic.GetCursorInput(x, y))
             {
