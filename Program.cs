@@ -8,81 +8,58 @@ internal class Program
     {
         Console.Clear();
         Console.CursorVisible = false;
+        PrintMenus.PrintDefaultMenuText();
         (int x, int y) = Console.GetCursorPosition();
-        PrintMenus.PrintMainMenu();
-        Console.Clear();
+        bool inMainMenu = true;
 
         while (true)
         {
-            MenusLogic.PrintColoredMenu(MenusLogic.currentMenu);
-
-            switch (MenusLogic.GetCursorInput(x, y))
+            if (inMainMenu == true)
             {
-                case 1:
-                    Console.Clear();
-                    PrintMenus.SetSearchAndSortCategoryMenu();
-                    MenusLogic.PrintColoredMenu(MenusLogic.currentMenu);
-                    switch (MenusLogic.GetCursorInput(x, y))
-                    {
-                        case 1:
-                            Console.Clear();
-                            Console.WriteLine("Alternativ 1");
-                            break;
-                        case 2:
-                            Console.Clear();
-                            Console.WriteLine("Alternativ 2");
-                            break;
-                        case 3:
-                            Console.Clear();
-                            Console.WriteLine("Alternativ 3");
-                            break;
-                        case 4:
-                            Console.Clear();
-                            Console.WriteLine("Alternativ 4");
-                            break;
-                        case 5:
-                            Console.Clear();
-                            Console.WriteLine("Alternativ 5");
-                            break;
-                        case 6:
-                            Console.Clear();
-                            Console.WriteLine("Alternativ 6");
-                            break;
-                        case 7:
-                            Console.Clear();
-                            Console.WriteLine("Alternativ 7");
-                            break;
-                        case 8:
-                            Console.Clear();
-                            Console.WriteLine("Alternativ 8");
-                            break;
-                    }
-                    break;
+                PrintMenus.PrintDefaultMenuText();
+                PrintMenus.PrintMainMenu();
+                MenusLogic.PrintColoredMenu(MenusLogic.mainMenu);
+                switch (MenusLogic.GetCursorInputMainMenu(x, y))
+                {
+                    case 1:
+                        PrintMenus.PrintDefaultMenuText();
+                        PrintMenus.SetSearchAndSortCategoryMenu();
+                        inMainMenu = false;
+                        break;
 
-                case 2:
-                    Console.Clear();
-                    PrintMenus.SetHandleGamesMenu();
-                    break;
+                    case 2:
+                        break;
 
-                case 3:
-                    Console.Clear();
-                    PrintMenus.SetHandleConsolesMenu();
-                    break;
+                    case 3:
+                        break;
 
-                case 4:
-                    Console.Clear();
-                    PrintMenus.SetHandleGenresMenu();
-                    break;
+                    case 4:
+                        break;
 
-                case 5:
-                    Console.Clear();
-                    PrintMenus.SetHandleBacklogMenu();
-                    break;
+                    case 5:
+                        break;
+                }
+            }
+            else
+            {
+                MenusLogic.PrintColoredMenu(MenusLogic.subMenu);
+                switch (MenusLogic.GetCursorInputSubMenu(x, y))
+                {
+                    case 1:
+                        break;
 
-                case 100:
-                    Console.Clear();
-                    PrintMenus.PrintMainMenu();
-                    break;
+                    case 2:
+                        break;
+
+                    case 3:
+                        break;
+
+                    case 4:
+                        break;
+
+                    case 5:
+                        break;
+                }
             }
         }
     }

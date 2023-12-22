@@ -5,11 +5,13 @@ class MenusLogic
 {
     static readonly string currentMenuMarker = "> \u001b[32m";
 
-    public static int currentOption;
+    public static int currentOption = 1;
 
-    public static string[] currentMenu;
+    public static string[] mainMenu;
 
-    public static int GetCursorInput(int x, int y)
+    public static string[] subMenu;
+
+    public static int GetCursorInputMainMenu(int x, int y)
     {
         Console.SetCursorPosition(x, y);
         int neverUsed = 100;
@@ -18,11 +20,38 @@ class MenusLogic
         switch (keyPressed.Key)
         {
             case ConsoleKey.UpArrow:
-                currentOption = currentOption == 1 ? currentMenu.Length : currentOption - 1;
+                currentOption = currentOption == 1 ? mainMenu.Length : currentOption - 1;
                 break;
 
             case ConsoleKey.DownArrow:
-                currentOption = currentOption == currentMenu.Length ? 1 : currentOption + 1;
+                currentOption = currentOption == mainMenu.Length ? 1 : currentOption + 1;
+                break;
+
+            case ConsoleKey.Enter:
+                return currentOption;
+
+            case ConsoleKey.F12:
+                Console.Clear();
+                Environment.Exit(0);
+                break;
+        }
+        return neverUsed;
+    }
+
+    public static int GetCursorInputSubMenu(int x, int y)
+    {
+        Console.SetCursorPosition(x, y);
+        int neverUsed = 100;
+        ConsoleKeyInfo keyPressed;
+        keyPressed = Console.ReadKey(true);
+        switch (keyPressed.Key)
+        {
+            case ConsoleKey.UpArrow:
+                currentOption = currentOption == 1 ? subMenu.Length : currentOption - 1;
+                break;
+
+            case ConsoleKey.DownArrow:
+                currentOption = currentOption == subMenu.Length ? 1 : currentOption + 1;
                 break;
 
             case ConsoleKey.Enter:
