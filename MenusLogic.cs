@@ -1,9 +1,10 @@
+using System.Collections;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Win32;
 
 class MenusLogic
 {
-    static readonly string currentMenuMarker = "> \u001b[32m";
+    public static string currentMenuMarker = "> \u001b[32m";
 
     public static int currentOption = 1;
 
@@ -11,10 +12,12 @@ class MenusLogic
 
     public static string[] subMenu;
 
+    public static bool inMainMenu;
+
     public static int GetCursorInputMainMenu(int x, int y)
     {
         Console.SetCursorPosition(x, y);
-        int neverUsed = 100;
+        int neverUsed = 0;
         ConsoleKeyInfo keyPressed;
         keyPressed = Console.ReadKey(true);
         switch (keyPressed.Key)
@@ -29,6 +32,10 @@ class MenusLogic
 
             case ConsoleKey.Enter:
                 return currentOption;
+
+            case ConsoleKey.F10:
+                inMainMenu = true;
+                break;
 
             case ConsoleKey.F12:
                 Console.Clear();
@@ -56,6 +63,10 @@ class MenusLogic
 
             case ConsoleKey.Enter:
                 return currentOption;
+
+            case ConsoleKey.F10:
+                inMainMenu = true;
+                break;
 
             case ConsoleKey.F12:
                 Console.Clear();

@@ -10,11 +10,11 @@ internal class Program
         Console.CursorVisible = false;
         PrintMenus.PrintDefaultMenuText();
         (int x, int y) = Console.GetCursorPosition();
-        bool inMainMenu = true;
+        MenusLogic.inMainMenu = true;
 
         while (true)
         {
-            if (inMainMenu == true)
+            if (MenusLogic.inMainMenu == true)
             {
                 PrintMenus.PrintDefaultMenuText();
                 PrintMenus.PrintMainMenu();
@@ -24,7 +24,7 @@ internal class Program
                     case 1:
                         PrintMenus.PrintDefaultMenuText();
                         PrintMenus.SetSearchAndSortCategoryMenu();
-                        inMainMenu = false;
+                        MenusLogic.inMainMenu = false;
                         break;
 
                     case 2:
@@ -42,6 +42,9 @@ internal class Program
             }
             else
             {
+
+                // add if-statement to check which menu is active
+
                 MenusLogic.PrintColoredMenu(MenusLogic.subMenu);
                 switch (MenusLogic.GetCursorInputSubMenu(x, y))
                 {
@@ -59,6 +62,7 @@ internal class Program
 
                     case 5:
                         break;
+
                 }
             }
         }
