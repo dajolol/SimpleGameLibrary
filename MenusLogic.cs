@@ -2,7 +2,7 @@ using System.Collections;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Win32;
 
-class MenusLogic
+class MenuFunctions
 {
     public static string currentMenuMarker = "> \u001b[32m";
 
@@ -12,7 +12,11 @@ class MenusLogic
 
     public static string[] subMenu;
 
+    public static string[] searchAndSortMenu;
+
     public static bool inMainMenu;
+
+    public static bool inSubMenu;
 
     public static int GetCursorInputMainMenu(int x, int y)
     {

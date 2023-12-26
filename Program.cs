@@ -10,21 +10,21 @@ internal class Program
         Console.CursorVisible = false;
         PrintMenus.PrintDefaultMenuText();
         (int x, int y) = Console.GetCursorPosition();
-        MenusLogic.inMainMenu = true;
+        MenuFunctions.inMainMenu = true;
 
         while (true)
         {
-            if (MenusLogic.inMainMenu == true)
+            if (MenuFunctions.inMainMenu == true)
             {
                 PrintMenus.PrintDefaultMenuText();
                 PrintMenus.PrintMainMenu();
-                MenusLogic.PrintColoredMenu(MenusLogic.mainMenu);
-                switch (MenusLogic.GetCursorInputMainMenu(x, y))
+                MenuFunctions.PrintColoredMenu(MenuFunctions.mainMenu);
+                switch (MenuFunctions.GetCursorInputMainMenu(x, y))
                 {
                     case 1:
                         PrintMenus.PrintDefaultMenuText();
                         PrintMenus.SetSearchAndSortCategoryMenu();
-                        MenusLogic.inMainMenu = false;
+                        MenuFunctions.inMainMenu = false;
                         break;
 
                     case 2:
@@ -43,27 +43,36 @@ internal class Program
             else
             {
 
-                // add if-statement to check which menu is active
+                // add if-statements to check which menu is active
 
-                MenusLogic.PrintColoredMenu(MenusLogic.subMenu);
-                switch (MenusLogic.GetCursorInputSubMenu(x, y))
-                {
-                    case 1:
-                        break;
+                MenuFunctions.PrintColoredMenu(MenuFunctions.subMenu);
 
-                    case 2:
-                        break;
+                if (MenuFunctions.subMenu == MenuFunctions.searchAndSortMenu)
 
-                    case 3:
-                        break;
+                    switch (MenuFunctions.GetCursorInputSubMenu(x, y))
+                    {
+                        case 1:
+                            break;
 
-                    case 4:
-                        break;
+                        case 2:
+                            break;
 
-                    case 5:
-                        break;
+                        case 3:
+                            break;
 
-                }
+                        case 4:
+                            break;
+
+                        case 5:
+                            break;
+
+                        case 6:
+                            break;
+
+                        case 8:
+                            break;
+
+                    }
             }
         }
     }
