@@ -24,7 +24,7 @@ class PrintMenus
                                   "4. Handle genres",
                                   "5. Handle backlog",
                                   "6. Exit program"
-                                 ];
+                                ];
 
         Console.ResetColor();
         ;
@@ -40,7 +40,7 @@ class PrintMenus
                                   "6. Search and sort by non-completed games",
                                   "7. Search and sort by personal grade",
                                   "8. Go back to main menu"
-                                 ];
+                                ];
 
         Console.ResetColor();
     }
