@@ -42,13 +42,10 @@ internal class Program
             }
             else
             {
-
                 // add if-statements to check which menu is active
-
-                MenuFunctions.PrintColoredMenu(MenuFunctions.subMenu);
-
                 if (MenuFunctions.subMenu == MenuFunctions.searchAndSortMenu)
-
+                {
+                    MenuFunctions.PrintColoredMenu(MenuFunctions.subMenu);
                     switch (MenuFunctions.GetCursorInputSubMenu(x, y))
                     {
                         case 1:
@@ -69,10 +66,16 @@ internal class Program
                         case 6:
                             break;
 
-                        case 8:
+                        case 7:
                             break;
 
+                        case 8:
+                            MenuFunctions.currentOption = 1;
+                            MenuFunctions.inMainMenu = true;
+                            break;
                     }
+                }
+
             }
         }
     }
