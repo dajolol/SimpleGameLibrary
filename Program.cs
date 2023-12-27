@@ -38,11 +38,15 @@ internal class Program
 
                     case 5:
                         break;
+
+                    case 6:
+                        Console.Clear();
+                        Environment.Exit(0);
+                        break;
                 }
             }
             else
             {
-                // add if-statements to check which menu is active
                 if (MenuFunctions.subMenu == MenuFunctions.searchAndSortMenu)
                 {
                     MenuFunctions.PrintColoredMenu(MenuFunctions.subMenu);
