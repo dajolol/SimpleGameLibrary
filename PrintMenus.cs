@@ -18,12 +18,12 @@ class PrintMenus
     }
     public static void PrintMainMenu()
     {
-        MenuFunctions.mainMenu = ["1. Search and sort by category in the library",
-                                  "2. Handle games",
-                                  "3. Handle consoles",
-                                  "4. Handle genres",
-                                  "5. Handle backlog",
-                                  "6. Exit program"
+        MenuFunctions.mainMenu = [  "1. Search and sort by category in the library",
+                                    "2. Handle games",
+                                    "3. Handle consoles",
+                                    "4. Handle genres",
+                                    "5. Handle backlog",
+                                    "6. Exit program"
                                  ];
 
         Console.ResetColor();
@@ -31,15 +31,15 @@ class PrintMenus
 
     public static void SetSearchAndSortCategoryMenu()
     {
-        string[] menu = [ "1. Search and sort by title",
-                                  "2. Search and sort by console",
-                                  "3. Search and sort by genre",
-                                  "4. Search and sort by release date",
-                                  "5. Search and sort by completed games",
-                                  "6. Search and sort by non-completed games",
-                                  "7. Search and sort by personal grade",
-                                  "8. Go back to main menu"
-                                ];
+        string[] menu = [   "1. Search and sort by title",
+                            "2. Search and sort by console",
+                            "3. Search and sort by genre",
+                            "4. Search and sort by release date",
+                            "5. Search and sort by completed games",
+                            "6. Search and sort by non-completed games",
+                            "7. Search and sort by personal grade",
+                            "8. Go back to main menu"
+                        ];
 
         MenuFunctions.subMenu = menu;
         MenuFunctions.searchAndSortMenu = menu;
