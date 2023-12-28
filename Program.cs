@@ -23,6 +23,7 @@ internal class Program
                 {
                     case 1:
                         PrintMenus.PrintDefaultMenuText();
+                        MenuFunctions.currentOption = 1;
                         PrintMenus.SetSearchAndSortCategoryMenu();
                         MenuFunctions.inMainMenu = false;
                         break;
@@ -34,6 +35,10 @@ internal class Program
                         break;
 
                     case 4:
+                        PrintMenus.PrintDefaultMenuText();
+                        MenuFunctions.currentOption = 1;
+                        PrintMenus.SetHandleGenresMenu();
+                        MenuFunctions.inMainMenu = false;
                         break;
 
                     case 5:
@@ -47,10 +52,11 @@ internal class Program
             }
             else
             {
-                if (MenuFunctions.currentSubMenu == MenuFunctions.searchAndSortMenu)
+
+                if (MenuFunctions.currentSubMenu == PrintMenus.searchAndSortMenu)
                 {
-                    MenuFunctions.PrintColoredMenu(MenuFunctions.searchAndSortMenu);
-                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, MenuFunctions.searchAndSortMenu))
+                    MenuFunctions.PrintColoredMenu(PrintMenus.searchAndSortMenu);
+                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, PrintMenus.searchAndSortMenu))
                     {
                         case 1:
                             break;
@@ -74,6 +80,27 @@ internal class Program
                             break;
 
                         case 8:
+                            MenuFunctions.currentOption = 1;
+                            MenuFunctions.inMainMenu = true;
+                            break;
+                    }
+                }
+
+                else if (MenuFunctions.currentSubMenu == PrintMenus.handleGenresMenu)
+                {
+                    MenuFunctions.PrintColoredMenu(PrintMenus.handleGenresMenu);
+                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, PrintMenus.handleGenresMenu))
+                    {
+                        case 1:
+                            break;
+
+                        case 2:
+                            break;
+
+                        case 3:
+                            break;
+
+                        case 4:
                             MenuFunctions.currentOption = 1;
                             MenuFunctions.inMainMenu = true;
                             break;

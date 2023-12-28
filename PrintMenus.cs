@@ -2,6 +2,10 @@ using System.Transactions;
 
 class PrintMenus
 {
+    public static string[] mainMenu;
+    public static string[] searchAndSortMenu;
+    public static string[] handleGenresMenu;
+
     public static void PrintDefaultMenuText()
     {
         Console.Clear();
@@ -31,7 +35,7 @@ class PrintMenus
 
     public static void SetSearchAndSortCategoryMenu()
     {
-        string[] menu = [   "1. Search and sort by title",
+        searchAndSortMenu = [   "1. Search and sort by title",
                             "2. Search and sort by console",
                             "3. Search and sort by genre",
                             "4. Search and sort by release date",
@@ -41,8 +45,7 @@ class PrintMenus
                             "8. Go back to main menu"
                         ];
 
-        MenuFunctions.currentSubMenu = menu;
-        MenuFunctions.searchAndSortMenu = menu;
+        MenuFunctions.currentSubMenu = searchAndSortMenu;
         Console.ResetColor();
     }
 
@@ -68,16 +71,16 @@ class PrintMenus
     //     Console.ResetColor();
     // }
 
-    // public static void SetHandleGenresMenu()
-    // {
-    //     MenusLogic.subMenu = ["1. Add a new genre to the library",
-    //                               "2. Remove a genre from the library",
-    //                               "3. See all genres in the library",
-    //                               "4. Go back to main menu"
-    //                              ];
-
-    //     Console.ResetColor();
-    // }
+    public static void SetHandleGenresMenu()
+    {
+        handleGenresMenu = [   "1. Add a new genre to the library",
+                            "2. Remove a genre from the library",
+                            "3. See all genres in the library",
+                            "4. Go back to main menu"
+                        ];
+        MenuFunctions.currentSubMenu = handleGenresMenu;
+        Console.ResetColor();
+    }
 
     // public static void SetHandleBacklogMenu()
     // {
