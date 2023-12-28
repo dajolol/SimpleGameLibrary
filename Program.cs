@@ -19,7 +19,7 @@ internal class Program
                 PrintMenus.PrintDefaultMenuText();
                 PrintMenus.PrintMainMenu();
                 MenuFunctions.PrintColoredMenu(MenuFunctions.mainMenu);
-                switch (MenuFunctions.GetCursorInputMainMenu(x, y))
+                switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, MenuFunctions.mainMenu))
                 {
                     case 1:
                         PrintMenus.PrintDefaultMenuText();
@@ -49,8 +49,8 @@ internal class Program
             {
                 if (MenuFunctions.subMenu == MenuFunctions.searchAndSortMenu)
                 {
-                    MenuFunctions.PrintColoredMenu(MenuFunctions.subMenu);
-                    switch (MenuFunctions.GetCursorInputSubMenu(x, y))
+                    MenuFunctions.PrintColoredMenu(MenuFunctions.searchAndSortMenu);
+                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, MenuFunctions.searchAndSortMenu))
                     {
                         case 1:
                             break;
