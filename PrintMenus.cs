@@ -41,7 +41,7 @@ class PrintMenus
                             "8. Go back to main menu"
                         ];
 
-        MenuFunctions.subMenu = menu;
+        MenuFunctions.currentSubMenu = menu;
         MenuFunctions.searchAndSortMenu = menu;
         Console.ResetColor();
     }

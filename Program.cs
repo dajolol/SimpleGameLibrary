@@ -47,7 +47,7 @@ internal class Program
             }
             else
             {
-                if (MenuFunctions.subMenu == MenuFunctions.searchAndSortMenu)
+                if (MenuFunctions.currentSubMenu == MenuFunctions.searchAndSortMenu)
                 {
                     MenuFunctions.PrintColoredMenu(MenuFunctions.searchAndSortMenu);
                     switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, MenuFunctions.searchAndSortMenu))

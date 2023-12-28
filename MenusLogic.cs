@@ -10,7 +10,7 @@ class MenuFunctions
 
     public static string[] mainMenu;
 
-    public static string[] subMenu;
+    public static string[] currentSubMenu;
 
     public static string[] searchAndSortMenu;
 
