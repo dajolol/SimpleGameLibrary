@@ -18,7 +18,7 @@ class MenuFunctions
 
     public static bool inSubMenu;
 
-    public static int GetCursorInputForCurrentMenu(int x, int y, string[] menu)
+    public static int GetCursorInputForCurrentMenu(int x, int y, string[] currentMenu)
     {
         Console.SetCursorPosition(x, y);
         int neverUsed = 0;
@@ -27,11 +27,11 @@ class MenuFunctions
         switch (keyPressed.Key)
         {
             case ConsoleKey.UpArrow:
-                currentOption = currentOption == 1 ? menu.Length : currentOption - 1;
+                currentOption = currentOption == 1 ? currentMenu.Length : currentOption - 1;
                 break;
 
             case ConsoleKey.DownArrow:
-                currentOption = currentOption == menu.Length ? 1 : currentOption + 1;
+                currentOption = currentOption == currentMenu.Length ? 1 : currentOption + 1;
                 break;
 
             case ConsoleKey.Enter:
