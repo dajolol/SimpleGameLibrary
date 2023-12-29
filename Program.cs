@@ -17,14 +17,14 @@ internal class Program
             if (MenuFunctions.inMainMenu == true)
             {
                 PrintMenus.PrintDefaultMenuText();
-                PrintMenus.PrintMainMenu();
-                MenuFunctions.PrintColoredMenu(MenuFunctions.mainMenu);
-                switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, MenuFunctions.mainMenu))
+                PrintMenus.PrintAndSetMainMenu();
+                MenuFunctions.PrintColoredMenu(PrintMenus.mainMenu);
+                switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, PrintMenus.mainMenu))
                 {
                     case 1:
                         PrintMenus.PrintDefaultMenuText();
                         MenuFunctions.currentOption = 1;
-                        PrintMenus.SetSearchAndSortCategoryMenu();
+                        PrintMenus.PrintAndSetSearchAndSortCategoryMenu();
                         MenuFunctions.inMainMenu = false;
                         break;
 
@@ -37,7 +37,7 @@ internal class Program
                     case 4:
                         PrintMenus.PrintDefaultMenuText();
                         MenuFunctions.currentOption = 1;
-                        PrintMenus.SetHandleGenresMenu();
+                        PrintMenus.PrintAndSetHandleGenresMenu();
                         MenuFunctions.inMainMenu = false;
                         break;
 
@@ -95,6 +95,10 @@ internal class Program
                             break;
 
                         case 2:
+                            Console.Clear();
+                            PrintMenus.PrintAndSetGenresMenu();
+                            MenuFunctions.PrintColoredMenu(PrintMenus.genreMenu);
+                            Console.ReadLine();
                             break;
 
                         case 3:

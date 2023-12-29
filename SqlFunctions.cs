@@ -11,5 +11,10 @@ class SqlFunctions
             connection.Open();
     }
 
-
+    public static IEnumerable<dynamic> GetAllGenresFromDB()
+    {
+        Open();
+        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT * FROM Genre;");
+        return results;
+    }
 }

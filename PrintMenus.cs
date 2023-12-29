@@ -5,6 +5,7 @@ class PrintMenus
     public static string[] mainMenu;
     public static string[] searchAndSortMenu;
     public static string[] handleGenresMenu;
+    public static string[] genreMenu;
 
     public static void PrintDefaultMenuText()
     {
@@ -20,9 +21,9 @@ class PrintMenus
 
         Console.SetCursorPosition(originalLeft, originalTop);
     }
-    public static void PrintMainMenu()
+    public static void PrintAndSetMainMenu()
     {
-        MenuFunctions.mainMenu = [  "1. Search and sort by category in the library",
+        mainMenu = [  "1. Search and sort by category in the library",
                                     "2. Handle games",
                                     "3. Handle consoles",
                                     "4. Handle genres",
@@ -33,7 +34,7 @@ class PrintMenus
         Console.ResetColor();
     }
 
-    public static void SetSearchAndSortCategoryMenu()
+    public static void PrintAndSetSearchAndSortCategoryMenu()
     {
         searchAndSortMenu = [   "1. Search and sort by title",
                             "2. Search and sort by console",
@@ -71,7 +72,7 @@ class PrintMenus
     //     Console.ResetColor();
     // }
 
-    public static void SetHandleGenresMenu()
+    public static void PrintAndSetHandleGenresMenu()
     {
         handleGenresMenu = [   "1. Add a new genre to the library",
                             "2. Remove a genre from the library",
@@ -80,6 +81,18 @@ class PrintMenus
                         ];
         MenuFunctions.currentSubMenu = handleGenresMenu;
         Console.ResetColor();
+    }
+
+    public static void PrintAndSetGenresMenu()
+    {
+        var results = SqlFunctions.GetAllGenresFromDB();
+        List<string> menu = new();
+        foreach (var row in results)
+        {
+            menu.Add($"{row.GenreID}. {row.GenreName}");
+        }
+        genreMenu = menu.ToArray();
+        MenuFunctions.currentSubMenu = genreMenu;
     }
 
     // public static void SetHandleBacklogMenu()

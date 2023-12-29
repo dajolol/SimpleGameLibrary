@@ -5,17 +5,9 @@ using Microsoft.Win32;
 class MenuFunctions
 {
     public static string currentMenuMarker = "> \u001b[32m";
-
     public static int currentOption = 1;
-
-    public static string[] mainMenu;
-
     public static string[] currentSubMenu;
-
-    public static string[] searchAndSortMenu;
-
     public static bool inMainMenu;
-
     public static bool inSubMenu;
 
     public static int GetCursorInputForCurrentMenu(int x, int y, string[] currentMenu)
