@@ -1,6 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Transactions;
 
 internal class Program
 {
@@ -8,7 +9,7 @@ internal class Program
     {
         Console.Clear();
         Console.CursorVisible = false;
-        PrintMenus.PrintDefaultMenuText();
+        Menus.PrintDefaultMenuText();
         (int x, int y) = Console.GetCursorPosition();
         MenuFunctions.inMainMenu = true;
 
@@ -16,15 +17,14 @@ internal class Program
         {
             if (MenuFunctions.inMainMenu == true)
             {
-                PrintMenus.PrintDefaultMenuText();
-                PrintMenus.PrintAndSetMainMenu();
-                MenuFunctions.PrintColoredMenu(PrintMenus.mainMenu);
-                switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, PrintMenus.mainMenu))
+                Menus.PrintDefaultMenuText();
+                MenuFunctions.PrintColoredMenu(Menus.mainMenu);
+                switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.mainMenu))
                 {
                     case 1:
-                        PrintMenus.PrintDefaultMenuText();
+                        Menus.PrintDefaultMenuText();
                         MenuFunctions.currentOption = 1;
-                        PrintMenus.PrintAndSetSearchAndSortCategoryMenu();
+                        MenuFunctions.SetCurrentSubMenu(Menus.searchAndSortMenu);
                         MenuFunctions.inMainMenu = false;
                         break;
 
@@ -35,9 +35,9 @@ internal class Program
                         break;
 
                     case 4:
-                        PrintMenus.PrintDefaultMenuText();
+                        Menus.PrintDefaultMenuText();
                         MenuFunctions.currentOption = 1;
-                        PrintMenus.PrintAndSetHandleGenresMenu();
+                        MenuFunctions.SetCurrentSubMenu(Menus.handleGenresMenu);
                         MenuFunctions.inMainMenu = false;
                         break;
 
@@ -53,10 +53,10 @@ internal class Program
             else
             {
 
-                if (MenuFunctions.currentSubMenu == PrintMenus.searchAndSortMenu)
+                if (MenuFunctions.currentSubMenu == Menus.searchAndSortMenu)
                 {
-                    MenuFunctions.PrintColoredMenu(PrintMenus.searchAndSortMenu);
-                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, PrintMenus.searchAndSortMenu))
+                    MenuFunctions.PrintColoredMenu(Menus.searchAndSortMenu);
+                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.searchAndSortMenu))
                     {
                         case 1:
                             break;
@@ -86,19 +86,15 @@ internal class Program
                     }
                 }
 
-                else if (MenuFunctions.currentSubMenu == PrintMenus.handleGenresMenu)
+                else if (MenuFunctions.currentSubMenu == Menus.handleGenresMenu)
                 {
-                    MenuFunctions.PrintColoredMenu(PrintMenus.handleGenresMenu);
-                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, PrintMenus.handleGenresMenu))
+                    MenuFunctions.PrintColoredMenu(Menus.handleGenresMenu);
+                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.handleGenresMenu))
                     {
                         case 1:
                             break;
 
                         case 2:
-                            Console.Clear();
-                            PrintMenus.PrintAndSetGenresMenu();
-                            MenuFunctions.PrintColoredMenu(PrintMenus.genreMenu);
-                            Console.ReadLine();
                             break;
 
                         case 3:

@@ -52,4 +52,9 @@ class MenuFunctions
         }
     }
 
+    public static void SetCurrentSubMenu(string[] menu)
+    {
+        currentSubMenu = menu;
+    }
+
 }
