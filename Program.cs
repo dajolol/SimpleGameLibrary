@@ -11,6 +11,7 @@ internal class Program
         Console.CursorVisible = false;
         Menus.PrintDefaultMenuText();
         (int x, int y) = Console.GetCursorPosition();
+        (int top, int left) = Console.GetCursorPosition();
         MenuFunctions.inMainMenu = true;
 
         while (true)
@@ -49,10 +50,10 @@ internal class Program
                         Environment.Exit(0);
                         break;
                 }
+
             }
             else
             {
-
                 if (MenuFunctions.currentSubMenu == Menus.searchAndSortMenu)
                 {
                     MenuFunctions.PrintColoredMenu(Menus.searchAndSortMenu);
@@ -81,6 +82,7 @@ internal class Program
 
                         case 8:
                             MenuFunctions.currentOption = 1;
+                            MenuFunctions.inSubMenu = false;
                             MenuFunctions.inMainMenu = true;
                             break;
                     }
@@ -98,6 +100,9 @@ internal class Program
                             break;
 
                         case 3:
+                            Menus.PrintDefaultOptionsMenuText();
+                            Menus.SetGenresListMenu();
+                            //MenuFunctions.PrintTest(Menus.genreListMenu);
                             break;
 
                         case 4:
@@ -106,7 +111,6 @@ internal class Program
                             break;
                     }
                 }
-
             }
         }
     }

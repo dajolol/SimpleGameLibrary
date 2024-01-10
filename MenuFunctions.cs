@@ -9,6 +9,8 @@ class MenuFunctions
     public static string[] currentSubMenu;
     public static bool inMainMenu;
     public static bool inSubMenu;
+    public static bool inSecondSubMenu;
+    public static bool outsideMenu;
 
     public static int GetCursorInputForCurrentMenu(int x, int y, string[] currentMenu)
     {
@@ -55,6 +57,18 @@ class MenuFunctions
     public static void SetCurrentSubMenu(string[] menu)
     {
         currentSubMenu = menu;
+    }
+
+    public static void PrintTest(string[] genreListMenu)
+    {
+        for (int i = 0; i < genreListMenu.Length; i++)
+        {
+            Console.WriteLine(genreListMenu[i]);
+        }
+        // foreach (var row in genreListMenu)
+        // {
+        //     Console.WriteLine(row);
+        // }
     }
 
 }
