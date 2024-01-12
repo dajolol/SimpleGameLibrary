@@ -11,11 +11,13 @@ internal class Program
         Console.CursorVisible = false;
         Menus.PrintDefaultMenuText();
         (int x, int y) = Console.GetCursorPosition();
-        (int top, int left) = Console.GetCursorPosition();
         MenuFunctions.inMainMenu = true;
 
         while (true)
         {
+
+            // MAINMENU-START
+
             if (MenuFunctions.inMainMenu == true)
             {
                 Menus.PrintDefaultMenuText();
@@ -27,6 +29,7 @@ internal class Program
                         MenuFunctions.currentOption = 1;
                         MenuFunctions.SetCurrentSubMenu(Menus.searchAndSortMenu);
                         MenuFunctions.inMainMenu = false;
+                        MenuFunctions.inSubMenu = true;
                         break;
 
                     case 2:
@@ -40,6 +43,7 @@ internal class Program
                         MenuFunctions.currentOption = 1;
                         MenuFunctions.SetCurrentSubMenu(Menus.handleGenresMenu);
                         MenuFunctions.inMainMenu = false;
+                        MenuFunctions.inSubMenu = true;
                         break;
 
                     case 5:
@@ -50,10 +54,17 @@ internal class Program
                         Environment.Exit(0);
                         break;
                 }
-
             }
-            else
+
+            // MAINMENU - END
+
+            /*-------------------------------------------------------------------------------*/
+
+            // SUBMENU - START
+
+            else if (MenuFunctions.inSubMenu == true)
             {
+                Menus.PrintDefaultMenuText();
                 if (MenuFunctions.currentSubMenu == Menus.searchAndSortMenu)
                 {
                     MenuFunctions.PrintColoredMenu(Menus.searchAndSortMenu);
@@ -100,9 +111,13 @@ internal class Program
                             break;
 
                         case 3:
-                            Menus.PrintDefaultOptionsMenuText();
-                            Menus.SetGenresListMenu();
-                            //MenuFunctions.PrintTest(Menus.genreListMenu);
+                            Console.Clear();
+                            Menus.SetGenresList();
+                            MenuFunctions.PrintTest(Menus.genreListMenu);
+                            Console.WriteLine();
+                            Console.WriteLine("Press the Enter-key to exit/continue.");
+                            Console.ReadLine();
+                            Console.Clear();
                             break;
 
                         case 4:

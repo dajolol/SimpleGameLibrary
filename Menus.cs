@@ -88,7 +88,7 @@ class Menus
         Console.ResetColor();
     }
 
-    public static void SetGenresListMenu()
+    public static void SetGenresList()
     {
         var results = SqlFunctions.GetAllGenresFromDB();
         List<string> menu = new();
