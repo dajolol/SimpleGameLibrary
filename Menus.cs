@@ -9,7 +9,7 @@ class Menus
                                             "5. Handle backlog",
                                             "6. Exit program"
                                         ];
-    public static string[] searchAndSortMenu = [    "1. Search and sort by title",
+    public static string[] searchAndSortMenu = [   "1. Search and sort by title",
                                                     "2. Search and sort by console",
                                                     "3. Search and sort by genre",
                                                     "4. Search and sort by release date",
@@ -18,11 +18,22 @@ class Menus
                                                     "7. Search and sort by personal grade",
                                                     "8. Go back to main menu"
                                                 ];
-    public static string[] handleGenresMenu = [     "1. Add a new genre to the library",
+    public static string[] handleGamesMenu = [   "1. Add a game to the library",
+                                                    "2. Remove a game from the library",
+                                                    "3. See all games in the library",
+                                                    "4. Go back to main menu"
+                                                ];
+    public static string[] handleConsolesMenu = [   "1. Add a console to the library",
+                                                    "2. Remove a console from the library",
+                                                    "3. See all consoles in the library",
+                                                    "4. Go back to main menu"
+                                                ];
+    public static string[] handleGenresMenu = [   "1. Add a new genre to the library",
                                                     "2. Remove a genre from the library",
                                                     "3. See all genres in the library",
                                                     "4. Go back to main menu"
                                                 ];
+
     public static string[] genreListMenu;
 
     public static void PrintDefaultMenuText()
@@ -55,16 +66,16 @@ class Menus
         Console.SetCursorPosition(originalLeft, originalTop);
     }
 
-    // public static void SetHandleGamesMenu()
-    // {
-    //     MenusLogic.subMenu = ["1. Add a game to the library",
-    //                               "2. Remove a game from the library",
-    //                               "3. See all games in the library",
-    //                               "4. Go back to main menu"
-    //                              ];
+    public static void SetHandleGamesMenu()
+    {
+        MenuFunctions.currentSubMenu = ["1. Add a game to the library",
+                                  "2. Remove a game from the library",
+                                  "3. See all games in the library",
+                                  "4. Go back to main menu"
+                                 ];
 
-    //     Console.ResetColor();
-    // }
+        Console.ResetColor();
+    }
 
     // public static void SetHandleConsolesMenu()
     // {
@@ -76,17 +87,6 @@ class Menus
 
     //     Console.ResetColor();
     // }
-
-    public static void SetHandleGenresMenu()
-    {
-        handleGenresMenu = [   "1. Add a new genre to the library",
-                            "2. Remove a genre from the library",
-                            "3. See all genres in the library",
-                            "4. Go back to main menu"
-                        ];
-        MenuFunctions.SetCurrentSubMenu(handleGenresMenu);
-        Console.ResetColor();
-    }
 
     public static void SetGenresList()
     {

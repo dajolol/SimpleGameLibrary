@@ -25,7 +25,6 @@ internal class Program
                 switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.mainMenu))
                 {
                     case 1:
-                        Menus.PrintDefaultMenuText();
                         MenuFunctions.currentOption = 1;
                         MenuFunctions.SetCurrentSubMenu(Menus.searchAndSortMenu);
                         MenuFunctions.inMainMenu = false;
@@ -33,13 +32,20 @@ internal class Program
                         break;
 
                     case 2:
+                        MenuFunctions.currentOption = 1;
+                        MenuFunctions.SetCurrentSubMenu(Menus.handleGamesMenu);
+                        MenuFunctions.inMainMenu = false;
+                        MenuFunctions.inSubMenu = true;
                         break;
 
                     case 3:
+                        MenuFunctions.currentOption = 1;
+                        MenuFunctions.SetCurrentSubMenu(Menus.handleConsolesMenu);
+                        MenuFunctions.inMainMenu = false;
+                        MenuFunctions.inSubMenu = true;
                         break;
 
                     case 4:
-                        Menus.PrintDefaultMenuText();
                         MenuFunctions.currentOption = 1;
                         MenuFunctions.SetCurrentSubMenu(Menus.handleGenresMenu);
                         MenuFunctions.inMainMenu = false;
@@ -64,6 +70,9 @@ internal class Program
 
             else if (MenuFunctions.inSubMenu == true)
             {
+
+                // SEARCH AND SORT MENU - START
+
                 Menus.PrintDefaultMenuText();
                 if (MenuFunctions.currentSubMenu == Menus.searchAndSortMenu)
                 {
@@ -99,6 +108,68 @@ internal class Program
                     }
                 }
 
+                // SEARCH AND SORT MENU - END
+
+                /*-------------------------------------------------------------------------------*/
+
+                // HANDLE GAMES MENU - START
+
+                else if (MenuFunctions.currentSubMenu == Menus.handleGamesMenu)
+                {
+                    MenuFunctions.PrintColoredMenu(Menus.handleGamesMenu);
+                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.handleGamesMenu))
+                    {
+                        case 1:
+                            break;
+
+                        case 2:
+                            break;
+
+                        case 3:
+                            break;
+
+                        case 4:
+                            MenuFunctions.currentOption = 1;
+                            MenuFunctions.inSubMenu = false;
+                            MenuFunctions.inMainMenu = true;
+                            break;
+                    }
+                }
+
+                // HANDLE GAMES MENU - END
+
+                /*-------------------------------------------------------------------------------*/
+
+                // HANDLE CONSOLES MENU - START
+
+                else if (MenuFunctions.currentSubMenu == Menus.handleConsolesMenu)
+                {
+                    MenuFunctions.PrintColoredMenu(Menus.handleConsolesMenu);
+                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.handleConsolesMenu))
+                    {
+                        case 1:
+                            break;
+
+                        case 2:
+                            break;
+
+                        case 3:
+                            break;
+
+                        case 4:
+                            MenuFunctions.currentOption = 1;
+                            MenuFunctions.inSubMenu = false;
+                            MenuFunctions.inMainMenu = true;
+                            break;
+                    }
+                }
+
+                // HANDLE CONSOLES MENU - END
+
+                /*-------------------------------------------------------------------------------*/
+
+                // HANDLE GENRES MENU - END
+
                 else if (MenuFunctions.currentSubMenu == Menus.handleGenresMenu)
                 {
                     MenuFunctions.PrintColoredMenu(Menus.handleGenresMenu);
@@ -126,6 +197,8 @@ internal class Program
                             break;
                     }
                 }
+
+                // HANDLE GENRES MENU END
             }
         }
     }
