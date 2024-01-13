@@ -53,6 +53,10 @@ internal class Program
                         break;
 
                     case 5:
+                        MenuFunctions.currentOption = 1;
+                        MenuFunctions.SetCurrentSubMenu(Menus.handleBacklogMenu);
+                        MenuFunctions.inMainMenu = false;
+                        MenuFunctions.inSubMenu = true;
                         break;
 
                     case 6:
@@ -92,15 +96,6 @@ internal class Program
                             break;
 
                         case 5:
-                            break;
-
-                        case 6:
-                            break;
-
-                        case 7:
-                            break;
-
-                        case 8:
                             MenuFunctions.currentOption = 1;
                             MenuFunctions.inSubMenu = false;
                             MenuFunctions.inMainMenu = true;
@@ -184,7 +179,7 @@ internal class Program
                         case 3:
                             Console.Clear();
                             MenuFunctions.SetGenresList();
-                            MenuFunctions.PrintTest(Menus.genreListMenu);
+                            MenuFunctions.PrintTest(Menus.genreList);
                             Console.WriteLine();
                             Console.WriteLine("Press the Enter-key to exit/continue.");
                             Console.ReadLine();
@@ -199,7 +194,50 @@ internal class Program
                 }
 
                 // HANDLE GENRES MENU END
+
+                /*-------------------------------------------------------------------------------*/
+
+                // HANDLE BACKLOG MENU - START
+
+                else if (MenuFunctions.currentSubMenu == Menus.handleGenresMenu)
+                {
+                    MenuFunctions.PrintColoredMenu(Menus.handleGenresMenu);
+                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.handleGenresMenu))
+                    {
+                        case 1:
+                            break;
+
+                        case 2:
+                            break;
+
+                        case 3:
+                            Console.Clear();
+                            MenuFunctions.SetGenresList();
+                            MenuFunctions.PrintTest(Menus.genreList);
+                            Console.WriteLine();
+                            Console.WriteLine("Press the Enter-key to exit/continue.");
+                            Console.ReadLine();
+                            Console.Clear();
+                            break;
+
+                        case 4:
+                            MenuFunctions.currentOption = 1;
+                            MenuFunctions.inMainMenu = true;
+                            break;
+                    }
+                }
             }
+            else if (MenuFunctions.inSecondSubMenu == true)
+            {
+
+            }
+
+            else if (MenuFunctions.outsideMenu == true)
+            {
+
+            }
+
+
         }
     }
 }
