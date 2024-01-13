@@ -69,4 +69,3 @@ class Menus
         Console.SetCursorPosition(originalLeft, originalTop);
     }
 }
-

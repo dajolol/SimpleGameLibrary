@@ -199,10 +199,10 @@ internal class Program
 
                 // HANDLE BACKLOG MENU - START
 
-                else if (MenuFunctions.currentSubMenu == Menus.handleGenresMenu)
+                else if (MenuFunctions.currentSubMenu == Menus.handleBacklogMenu)
                 {
-                    MenuFunctions.PrintColoredMenu(Menus.handleGenresMenu);
-                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.handleGenresMenu))
+                    MenuFunctions.PrintColoredMenu(Menus.handleBacklogMenu);
+                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.handleBacklogMenu))
                     {
                         case 1:
                             break;
@@ -227,16 +227,32 @@ internal class Program
                     }
                 }
             }
+
+            // SUBMENU END
+
+            /*-------------------------------------------------------------------------------*/
+
+            // SECOND SUBMENU START
+
             else if (MenuFunctions.inSecondSubMenu == true)
             {
 
             }
+
+            // SECOND SUBMENU END
+
+            /*-------------------------------------------------------------------------------*/
+
+            // OUTSIDE MENU START
 
             else if (MenuFunctions.outsideMenu == true)
             {
 
             }
 
+            // OUTSIDE MENU END
+
+            /*-------------------------------------------------------------------------------*/
 
         }
     }

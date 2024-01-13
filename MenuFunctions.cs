@@ -79,7 +79,7 @@ class MenuFunctions
         {
             menu.Add($"{row.GenreID}. {row.GenreName}");
         }
-        Menus.genreListMenu = menu.ToArray();
+        Menus.genreList = menu.ToArray();
     }
 
 }
