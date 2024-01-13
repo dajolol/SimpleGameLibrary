@@ -71,4 +71,15 @@ class MenuFunctions
         // }
     }
 
+    public static void SetGenresList()
+    {
+        var results = SqlFunctions.GetAllGenresFromDB();
+        List<string> menu = new();
+        foreach (var row in results)
+        {
+            menu.Add($"{row.GenreID}. {row.GenreName}");
+        }
+        Menus.genreListMenu = menu.ToArray();
+    }
+
 }

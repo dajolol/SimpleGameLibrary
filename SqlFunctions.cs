@@ -11,6 +11,20 @@ class SqlFunctions
             connection.Open();
     }
 
+    public static IEnumerable<dynamic> GetAllGamesFromDB()
+    {
+        Open();
+        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT * FROM Genre;");
+        return results;
+    }
+
+    public static IEnumerable<dynamic> GetAllConsolesFromDB()
+    {
+        Open();
+        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT * FROM Genre;");
+        return results;
+    }
+
     public static IEnumerable<dynamic> GetAllGenresFromDB()
     {
         Open();

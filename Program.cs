@@ -183,7 +183,7 @@ internal class Program
 
                         case 3:
                             Console.Clear();
-                            Menus.SetGenresList();
+                            MenuFunctions.SetGenresList();
                             MenuFunctions.PrintTest(Menus.genreListMenu);
                             Console.WriteLine();
                             Console.WriteLine("Press the Enter-key to exit/continue.");
