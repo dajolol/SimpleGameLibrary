@@ -172,6 +172,8 @@ internal class Program
                     switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.handleGenresMenu))
                     {
                         case 1:
+                            Console.Clear();
+                            MenuFunctions.AddGenreToLibrary();
                             break;
 
                         case 2:

@@ -78,4 +78,11 @@ class MenuFunctions
         Menus.genreList = menu.ToArray();
     }
 
+    public static void AddGenreToLibrary()
+    {
+        Console.Write("Write the name of the genre: ");
+        string userInput = Console.ReadLine();
+        SqlFunctions.AddGenreToDatabase(userInput);
+    }
+
 }

@@ -17,7 +17,7 @@ class Menus
                                                 ];
     public static string[] handleGamesMenu = [      "1. Add a game to the library",
                                                     "2. Remove a game from the library",
-                                                    "3. See all games in the library",
+                                                    "3. See current number of games in the library",
                                                     "4. Go back to main menu"
                                                 ];
     public static string[] handleConsolesMenu = [   "1. Add a console to the library",
@@ -27,13 +27,13 @@ class Menus
                                                 ];
     public static string[] handleGenresMenu = [     "1. Add a new genre to the library",
                                                     "2. Remove a genre from the library",
-                                                    "3. See all genres in the library",
+                                                    "3. See all current genres in the library",
                                                     "4. Go back to main menu"
                                                 ];
     public static string[] handleBacklogMenu = [    "1. Add game to backlog list",
-                                                "2. Update game on backlog list",
-                                                "3. See backlog list",
-                                                "4. Go back to main menu"
+                                                    "2. Update game on backlog list",
+                                                    "3. See backlog list",
+                                                    "4. Go back to main menu"
                                             ];
     public static string[] gamesListMenu;
     public static string[] consolesList;

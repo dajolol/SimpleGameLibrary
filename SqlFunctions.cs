@@ -31,4 +31,10 @@ class SqlFunctions
         IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT * FROM Genre;");
         return results;
     }
+
+    public static void AddGenreToDatabase(string userInput)
+    {
+        Open();
+        connection.Execute($"INSERT INTO Genre(GenreName) VALUES ('{userInput}')");
+    }
 }
