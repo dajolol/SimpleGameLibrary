@@ -61,14 +61,10 @@ class MenuFunctions
 
     public static void PrintTest(string[] genreListMenu)
     {
-        for (int i = 0; i < genreListMenu.Length; i++)
+        foreach (var row in genreListMenu)
         {
-            Console.WriteLine(genreListMenu[i]);
+            Console.WriteLine(row);
         }
-        // foreach (var row in genreListMenu)
-        // {
-        //     Console.WriteLine(row);
-        // }
     }
 
     public static void SetGenresList()
