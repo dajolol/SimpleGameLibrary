@@ -1,6 +1,8 @@
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.Json.Serialization;
 using Dapper;
+using Microsoft.SqlServer.Server;
 class SqlFunctions
 {
     static IDbConnection connection = new SqlConnection("Server=localhost,1433;User=sa;Password=apA123!#!;Database=GameLibrary;");
@@ -28,13 +30,37 @@ class SqlFunctions
     public static IEnumerable<dynamic> GetAllGenresFromDB()
     {
         Open();
-        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT * FROM Genre;");
+        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT GenreName FROM Genre;");
         return results;
     }
 
     public static void AddGenreToDatabase(string userInput)
     {
         Open();
-        connection.Execute($"INSERT INTO Genre(GenreName) VALUES ('{userInput}')");
+        bool containString = CheckIfContainsString(GetAllGenresFromDB(), userInput);
+
+        if (containString == true)
+        {
+            Console.WriteLine("A value with that name does already exist in the database. Press Enter to continue and try again.");
+            Console.ReadLine();
+        }
+        else
+        {
+            connection.Execute($"INSERT INTO Genre(GenreName) VALUES ('{userInput}');");
+            Console.WriteLine($"{userInput} was successfully added to the list of genres! Press Enter to continue.");
+            Console.ReadLine();
+        }
+    }
+
+    static bool CheckIfContainsString(IEnumerable<dynamic> resultsFromDb, string userInput)
+    {
+        foreach (var result in resultsFromDb)
+        {
+            if (result == userInput)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

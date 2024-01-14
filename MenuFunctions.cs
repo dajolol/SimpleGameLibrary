@@ -80,7 +80,7 @@ class MenuFunctions
 
     public static void AddGenreToLibrary()
     {
-        Console.Write("Write the name of the genre: ");
+        Console.Write("Write the name of the genre you want to add: ");
         string userInput = Console.ReadLine();
         SqlFunctions.AddGenreToDatabase(userInput);
     }

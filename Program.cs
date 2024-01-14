@@ -173,6 +173,7 @@ internal class Program
                     {
                         case 1:
                             Console.Clear();
+                            MenuFunctions.SetGenresList();
                             MenuFunctions.AddGenreToLibrary();
                             break;
 
