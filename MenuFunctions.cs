@@ -70,12 +70,12 @@ class MenuFunctions
     public static void SetGenresList()
     {
         var results = SqlFunctions.GetAllGenresFromDB();
-        List<string> menu = new();
+        List<string> tempList = new();
         foreach (var row in results)
         {
-            menu.Add($"{row.GenreName}");
+            tempList.Add($"{row.ColumnName}");
         }
-        Menus.genreList = menu.ToArray();
+        Menus.genreList = tempList.ToArray();
     }
 
     public static void AddGenreToLibrary()

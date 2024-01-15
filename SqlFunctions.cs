@@ -1,6 +1,5 @@
 using System.Data;
 using System.Data.SqlClient;
-using System.Text.Json.Serialization;
 using Dapper;
 using Microsoft.SqlServer.Server;
 class SqlFunctions
@@ -30,19 +29,18 @@ class SqlFunctions
     public static IEnumerable<dynamic> GetAllGenresFromDB()
     {
         Open();
-        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT GenreName FROM Genre;");
+        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT GenreName AS ColumnName FROM Genre;");
         return results;
     }
 
     public static void AddGenreToDatabase(string userInput)
     {
         Open();
-        MenuFunctions.SetGenresList();
-        bool containString = CheckIfContainsString(Menus.genreList, userInput);
+        bool containString = CheckIfContainsString(GetAllGenresFromDB(), userInput);
 
         if (containString == true)
         {
-            Console.WriteLine("A value with that name does already exist in the database. Press Enter to continue and try again.");
+            Console.WriteLine("A value with that name does already exist in the list of genres. Press Enter to continue and try again.");
             Console.ReadLine();
         }
         else
@@ -53,11 +51,22 @@ class SqlFunctions
         }
     }
 
-    static bool CheckIfContainsString(string[] tempList, string userInput)
+    public static void RemoveGenreFromDatabase(int currentOption)
     {
+        string optionToRemove = Menus.genreList[currentOption - 1];
+    }
+
+    static bool CheckIfContainsString(IEnumerable<dynamic> resultsFromDb, string stringToCheck)
+    {
+        List<string> tempList = new();
+        foreach (var row in resultsFromDb)
+        {
+            tempList.Add($"{row.ColumnName}");
+        }
+
         foreach (var result in tempList)
         {
-            if (result == userInput)
+            if (result == stringToCheck)
             {
                 return true;
             }

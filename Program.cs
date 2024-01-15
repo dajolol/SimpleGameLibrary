@@ -178,6 +178,10 @@ internal class Program
                             break;
 
                         case 2:
+                            Console.Clear();
+                            MenuFunctions.SetGenresList();
+                            MenuFunctions.inSubMenu = false;
+                            MenuFunctions.inSecondSubMenu = true;
                             break;
 
                         case 3:
@@ -215,13 +219,6 @@ internal class Program
                             break;
 
                         case 3:
-                            Console.Clear();
-                            MenuFunctions.SetGenresList();
-                            MenuFunctions.PrintTest(Menus.genreList);
-                            Console.WriteLine();
-                            Console.WriteLine("Press the Enter-key to exit/continue.");
-                            Console.ReadLine();
-                            Console.Clear();
                             break;
 
                         case 4:
@@ -240,7 +237,21 @@ internal class Program
 
             else if (MenuFunctions.inSecondSubMenu == true)
             {
+                Menus.PrintDefaultOptionsMenuText();
 
+                if (MenuFunctions.currentSubMenu == Menus.handleGenresMenu)
+                {
+                    MenuFunctions.currentOption = 1;
+                    MenuFunctions.PrintColoredMenu(Menus.genreList);
+                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.genreList))
+                    {
+                        case > 0 or <= 1000:
+                            SqlFunctions.RemoveGenreFromDatabase(MenuFunctions.currentOption);
+                            MenuFunctions.outsideMenu = false;
+                            MenuFunctions.inSubMenu = true;
+                            break;
+                    }
+                }
             }
 
             // SECOND SUBMENU END
