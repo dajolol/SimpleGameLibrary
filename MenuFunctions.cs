@@ -73,7 +73,7 @@ class MenuFunctions
         List<string> menu = new();
         foreach (var row in results)
         {
-            menu.Add($"{row.GenreID}. {row.GenreName}");
+            menu.Add($"{row.GenreName}");
         }
         Menus.genreList = menu.ToArray();
     }

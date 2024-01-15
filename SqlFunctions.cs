@@ -37,7 +37,8 @@ class SqlFunctions
     public static void AddGenreToDatabase(string userInput)
     {
         Open();
-        bool containString = CheckIfContainsString(GetAllGenresFromDB(), userInput);
+        MenuFunctions.SetGenresList();
+        bool containString = CheckIfContainsString(Menus.genreList, userInput);
 
         if (containString == true)
         {
@@ -46,15 +47,15 @@ class SqlFunctions
         }
         else
         {
-            connection.Execute($"INSERT INTO Genre(GenreName) VALUES ('{userInput}');");
+            connection.Execute($"INSERT INTO Genre(GenreName) VALUES (@UserInput);", new { UserInput = userInput });
             Console.WriteLine($"{userInput} was successfully added to the list of genres! Press Enter to continue.");
             Console.ReadLine();
         }
     }
 
-    static bool CheckIfContainsString(IEnumerable<dynamic> resultsFromDb, string userInput)
+    static bool CheckIfContainsString(string[] tempList, string userInput)
     {
-        foreach (var result in resultsFromDb)
+        foreach (var result in tempList)
         {
             if (result == userInput)
             {
