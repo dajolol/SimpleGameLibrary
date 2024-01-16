@@ -15,7 +15,7 @@ class SqlFunctions
     public static IEnumerable<dynamic> GetAllGamesFromDB()
     {
         Open();
-        IEnumerable<dynamic> results = connection.Query<dynamic>("");
+        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT ConsoleName");
         return results;
     }
     public static IEnumerable<dynamic> GetAllConsolesFromDB()

@@ -173,21 +173,21 @@ internal class Program
                     {
                         case 1:
                             Console.Clear();
-                            MenuFunctions.SetSelectOptionList();
+                            MenuFunctions.SetSelectGenreOptionList();
                             MenuFunctions.AddGenreToLibrary();
                             break;
 
                         case 2:
                             MenuFunctions.currentOption = 1;
                             Console.Clear();
-                            MenuFunctions.SetSelectOptionList();
+                            MenuFunctions.SetSelectGenreOptionList();
                             MenuFunctions.inSubMenu = false;
                             MenuFunctions.inSecondSubMenu = true;
                             break;
 
                         case 3:
                             Console.Clear();
-                            MenuFunctions.SetSelectOptionList();
+                            MenuFunctions.SetSelectGenreOptionList();
                             MenuFunctions.PrintTest(Menus.genreList);
                             Console.WriteLine();
                             Console.WriteLine("Press the Enter-key to exit/continue.");
