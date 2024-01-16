@@ -59,15 +59,15 @@ class MenuFunctions
         currentSubMenu = menu;
     }
 
-    public static void PrintTest(string[] genreListMenu)
+    public static void PrintListOfTableItems(string[] tempList)
     {
-        foreach (var row in genreListMenu)
+        foreach (var row in tempList)
         {
             Console.WriteLine(row);
         }
     }
 
-    public static void SetSelectGenreOptionList()
+    public static void SetGenreList()
     {
         var results = SqlFunctions.GetAllGenresFromDB();
         List<string> tempList = new();

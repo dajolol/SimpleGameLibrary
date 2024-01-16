@@ -173,22 +173,22 @@ internal class Program
                     {
                         case 1:
                             Console.Clear();
-                            MenuFunctions.SetSelectGenreOptionList();
+                            MenuFunctions.SetGenreList();
                             MenuFunctions.AddGenreToLibrary();
                             break;
 
                         case 2:
                             MenuFunctions.currentOption = 1;
                             Console.Clear();
-                            MenuFunctions.SetSelectGenreOptionList();
+                            MenuFunctions.SetGenreList();
                             MenuFunctions.inSubMenu = false;
                             MenuFunctions.inSecondSubMenu = true;
                             break;
 
                         case 3:
                             Console.Clear();
-                            MenuFunctions.SetSelectGenreOptionList();
-                            MenuFunctions.PrintTest(Menus.genreList);
+                            MenuFunctions.SetGenreList();
+                            MenuFunctions.PrintListOfTableItems(Menus.genreList);
                             Console.WriteLine();
                             Console.WriteLine("Press the Enter-key to exit/continue.");
                             Console.ReadLine();
@@ -247,6 +247,19 @@ internal class Program
                     {
                         case > 1 or > 1000:
                             SqlFunctions.RemoveGenreFromDatabase(MenuFunctions.currentOption);
+                            MenuFunctions.currentOption = 1;
+                            MenuFunctions.inSecondSubMenu = false;
+                            MenuFunctions.inSubMenu = true;
+                            break;
+                    }
+                }
+                else if (MenuFunctions.currentSubMenu == Menus.handleConsolesMenu)
+                {
+                    MenuFunctions.PrintColoredMenu(Menus.consolesList);
+                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.consolesList))
+                    {
+                        case > 1 or > 1000:
+                            SqlFunctions.RemoveConsoleFromDatabase(MenuFunctions.currentOption);
                             MenuFunctions.currentOption = 1;
                             MenuFunctions.inSecondSubMenu = false;
                             MenuFunctions.inSubMenu = true;

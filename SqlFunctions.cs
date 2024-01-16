@@ -38,13 +38,13 @@ class SqlFunctions
 
         if (containString == true)
         {
-            Console.WriteLine("A value with that name does already exist in the list of genres. Press Enter to continue and try again.");
+            Console.WriteLine("A value with that name does already exist in the list of consoles. Press Enter to continue and try again.");
             Console.ReadLine();
         }
         else
         {
             connection.Execute($"INSERT INTO Consoles(ConsoleName) VALUES (@UserInput);", new { UserInput = userInput });
-            Console.WriteLine($"{userInput} was successfully added to the list of genres! Press Enter to continue.");
+            Console.WriteLine($"{userInput} was successfully added to the list of consoles! Press Enter to continue.");
             Console.ReadLine();
         }
     }
@@ -72,6 +72,15 @@ class SqlFunctions
         string optionToRemove = Menus.genreList[currentOption - 1];
         Console.Clear();
         connection.Execute($"DELETE FROM Genres WHERE GenreName = @OptionToRemove;", new { OptionToRemove = optionToRemove });
+        Console.WriteLine($"{optionToRemove} was successfully deleted from the list of genres! Press Enter to continue.");
+        Console.ReadLine();
+    }
+
+    public static void RemoveConsoleFromDatabase(int currentOption)
+    {
+        string optionToRemove = Menus.consolesList[currentOption - 1];
+        Console.Clear();
+        connection.Execute($"DELETE FROM Consoles WHERE ConsoleName = @OptionToRemove;", new { OptionToRemove = optionToRemove });
         Console.WriteLine($"{optionToRemove} was successfully deleted from the list of genres! Press Enter to continue.");
         Console.ReadLine();
     }
