@@ -35,7 +35,7 @@ class Menus
                                                     "3. See backlog list",
                                                     "4. Go back to main menu"
                                             ];
-    public static string[] gamesListMenu;
+    public static string[] gamesList;
     public static string[] consolesList;
     public static string[] genreList;
 
