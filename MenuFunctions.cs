@@ -67,7 +67,7 @@ class MenuFunctions
         }
     }
 
-    public static void SetGenresList()
+    public static void SetSelectOptionList()
     {
         var results = SqlFunctions.GetAllGenresFromDB();
         List<string> tempList = new();
@@ -75,7 +75,15 @@ class MenuFunctions
         {
             tempList.Add($"{row.ColumnName}");
         }
-        Menus.genreList = tempList.ToArray();
+
+        if (currentSubMenu == Menus.handleConsolesMenu)
+        {
+            Menus.consolesList = tempList.ToArray();
+        }
+        else if (currentSubMenu == Menus.handleGenresMenu)
+        {
+            Menus.genreList = tempList.ToArray();
+        }
     }
 
     public static void AddGenreToLibrary()

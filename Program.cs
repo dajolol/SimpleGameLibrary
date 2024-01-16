@@ -173,20 +173,21 @@ internal class Program
                     {
                         case 1:
                             Console.Clear();
-                            MenuFunctions.SetGenresList();
+                            MenuFunctions.SetSelectOptionList();
                             MenuFunctions.AddGenreToLibrary();
                             break;
 
                         case 2:
+                            MenuFunctions.currentOption = 1;
                             Console.Clear();
-                            MenuFunctions.SetGenresList();
+                            MenuFunctions.SetSelectOptionList();
                             MenuFunctions.inSubMenu = false;
                             MenuFunctions.inSecondSubMenu = true;
                             break;
 
                         case 3:
                             Console.Clear();
-                            MenuFunctions.SetGenresList();
+                            MenuFunctions.SetSelectOptionList();
                             MenuFunctions.PrintTest(Menus.genreList);
                             Console.WriteLine();
                             Console.WriteLine("Press the Enter-key to exit/continue.");
@@ -241,13 +242,13 @@ internal class Program
 
                 if (MenuFunctions.currentSubMenu == Menus.handleGenresMenu)
                 {
-                    MenuFunctions.currentOption = 1;
                     MenuFunctions.PrintColoredMenu(Menus.genreList);
                     switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.genreList))
                     {
-                        case > 0 or <= 1000:
+                        case > 1 or > 1000:
                             SqlFunctions.RemoveGenreFromDatabase(MenuFunctions.currentOption);
-                            MenuFunctions.outsideMenu = false;
+                            MenuFunctions.currentOption = 1;
+                            MenuFunctions.inSecondSubMenu = false;
                             MenuFunctions.inSubMenu = true;
                             break;
                     }

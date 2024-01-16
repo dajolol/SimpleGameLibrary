@@ -54,6 +54,10 @@ class SqlFunctions
     public static void RemoveGenreFromDatabase(int currentOption)
     {
         string optionToRemove = Menus.genreList[currentOption - 1];
+        connection.Execute($"DELETE FROM Genre WHERE GenreName = @OptionToRemove;", new { OptionToRemove = optionToRemove });
+        Console.Clear();
+        Console.WriteLine($"{optionToRemove} was successfully deleted from the list of genres! Press Enter to continue.");
+        Console.ReadLine();
     }
 
     static bool CheckIfContainsString(IEnumerable<dynamic> resultsFromDb, string stringToCheck)
