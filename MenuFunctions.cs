@@ -90,6 +90,13 @@ class MenuFunctions
     {
         Console.Write("Write the name of the genre you want to add: ");
         string userInput = Console.ReadLine();
+        while (string.IsNullOrEmpty(userInput))
+        {
+            Console.Clear();
+            Console.WriteLine("The genre name must contain atleast one character!");
+            Console.Write("Write the name of the genre you want to add: ");
+            userInput = Console.ReadLine();
+        }
         SqlFunctions.AddGenreToDatabase(userInput);
     }
 

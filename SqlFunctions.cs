@@ -15,22 +15,38 @@ class SqlFunctions
     public static IEnumerable<dynamic> GetAllGamesFromDB()
     {
         Open();
-        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT * FROM Genre;");
+        IEnumerable<dynamic> results = connection.Query<dynamic>("");
         return results;
     }
-
     public static IEnumerable<dynamic> GetAllConsolesFromDB()
     {
         Open();
-        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT * FROM Genre;");
+        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT ConsoleName AS ColumnName FROM Consoles;");
         return results;
     }
-
     public static IEnumerable<dynamic> GetAllGenresFromDB()
     {
         Open();
-        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT GenreName AS ColumnName FROM Genre;");
+        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT GenreName AS ColumnName FROM Genres;");
         return results;
+    }
+
+    public static void AddConsoleToDatabase(string userInput)
+    {
+        Open();
+        bool containString = CheckIfContainsString(GetAllGamesFromDB(), userInput);
+
+        if (containString == true)
+        {
+            Console.WriteLine("A value with that name does already exist in the list of genres. Press Enter to continue and try again.");
+            Console.ReadLine();
+        }
+        else
+        {
+            connection.Execute($"INSERT INTO Consoles(ConsoleName) VALUES (@UserInput);", new { UserInput = userInput });
+            Console.WriteLine($"{userInput} was successfully added to the list of genres! Press Enter to continue.");
+            Console.ReadLine();
+        }
     }
 
     public static void AddGenreToDatabase(string userInput)
@@ -45,7 +61,7 @@ class SqlFunctions
         }
         else
         {
-            connection.Execute($"INSERT INTO Genre(GenreName) VALUES (@UserInput);", new { UserInput = userInput });
+            connection.Execute($"INSERT INTO Genres(GenreName) VALUES (@UserInput);", new { UserInput = userInput });
             Console.WriteLine($"{userInput} was successfully added to the list of genres! Press Enter to continue.");
             Console.ReadLine();
         }
@@ -55,7 +71,7 @@ class SqlFunctions
     {
         string optionToRemove = Menus.genreList[currentOption - 1];
         Console.Clear();
-        connection.Execute($"DELETE FROM Genre WHERE GenreName = @OptionToRemove;", new { OptionToRemove = optionToRemove });
+        connection.Execute($"DELETE FROM Genres WHERE GenreName = @OptionToRemove;", new { OptionToRemove = optionToRemove });
         Console.WriteLine($"{optionToRemove} was successfully deleted from the list of genres! Press Enter to continue.");
         Console.ReadLine();
     }
