@@ -36,7 +36,7 @@ class Menus
                                                     "4. Go back to main menu"
                                                 ];
     public static string[] gamesList;
-    public static string[] consolesList;
+    public static string[] consoleList;
     public static string[] genreList;
 
     public static void PrintDefaultMenuText()

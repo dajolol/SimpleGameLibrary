@@ -160,9 +160,9 @@ internal class Program
                         case 3:
                             Console.Clear();
                             MenuFunctions.SetConsolesList();
-                            Console.WriteLine("The following genres are currently available in the library:");
+                            Console.WriteLine("The following consoles are currently available in the library:");
                             Console.WriteLine("------------------------------------------------------------");
-                            MenuFunctions.PrintListOfTableItems(Menus.consolesList);
+                            MenuFunctions.PrintListOfTableItems(Menus.consoleList);
                             Console.WriteLine();
                             Console.WriteLine("Press the Enter-key to exit/continue.");
                             Console.ReadLine();
@@ -274,8 +274,8 @@ internal class Program
                 }
                 else if (MenuFunctions.currentSubMenu == Menus.handleConsolesMenu)
                 {
-                    MenuFunctions.PrintColoredMenu(Menus.consolesList);
-                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.consolesList))
+                    MenuFunctions.PrintColoredMenu(Menus.consoleList);
+                    switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.consoleList))
                     {
                         case > 1 or > 1000:
                             SqlFunctions.RemoveConsoleFromDatabase(MenuFunctions.currentOption);

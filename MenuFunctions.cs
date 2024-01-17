@@ -75,7 +75,7 @@ class MenuFunctions
         {
             tempList.Add($"{row.ColumnName}");
         }
-        Menus.consolesList = tempList.ToArray();
+        Menus.consoleList = tempList.ToArray();
     }
 
     public static void SetGenresList()
