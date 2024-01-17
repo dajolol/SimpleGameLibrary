@@ -34,7 +34,7 @@ class SqlFunctions
     public static void AddConsoleToDatabase(string userInput)
     {
         Open();
-        bool containString = CheckIfContainsString(GetAllGamesFromDB(), userInput);
+        bool containString = CheckIfContainsString(GetAllConsolesFromDB(), userInput);
 
         if (containString == true)
         {

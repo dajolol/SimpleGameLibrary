@@ -67,7 +67,18 @@ class MenuFunctions
         }
     }
 
-    public static void SetGenreList()
+    public static void SetConsolesList()
+    {
+        var results = SqlFunctions.GetAllConsolesFromDB();
+        List<string> tempList = new();
+        foreach (var row in results)
+        {
+            tempList.Add($"{row.ColumnName}");
+        }
+        Menus.consolesList = tempList.ToArray();
+    }
+
+    public static void SetGenresList()
     {
         var results = SqlFunctions.GetAllGenresFromDB();
         List<string> tempList = new();
@@ -77,8 +88,20 @@ class MenuFunctions
         }
         Menus.genreList = tempList.ToArray();
     }
-
-    public static void AddGenreToLibrary()
+    public static void CallAndCheckConsoleToDB()
+    {
+        Console.Write("Write the name of the console you want to add: ");
+        string userInput = Console.ReadLine();
+        while (string.IsNullOrEmpty(userInput))
+        {
+            Console.Clear();
+            Console.WriteLine("The console name must contain atleast one character!");
+            Console.Write("Write the name of the console you want to add: ");
+            userInput = Console.ReadLine();
+        }
+        SqlFunctions.AddConsoleToDatabase(userInput);
+    }
+    public static void CallAndCheckGenreToDB()
     {
         Console.Write("Write the name of the genre you want to add: ");
         string userInput = Console.ReadLine();

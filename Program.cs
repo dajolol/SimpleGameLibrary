@@ -144,12 +144,29 @@ internal class Program
                     switch (MenuFunctions.GetCursorInputForCurrentMenu(x, y, Menus.handleConsolesMenu))
                     {
                         case 1:
+                            Console.Clear();
+                            MenuFunctions.SetConsolesList();
+                            MenuFunctions.CallAndCheckConsoleToDB();
                             break;
 
                         case 2:
+                            MenuFunctions.currentOption = 1;
+                            Console.Clear();
+                            MenuFunctions.SetConsolesList();
+                            MenuFunctions.inSubMenu = false;
+                            MenuFunctions.inSecondSubMenu = true;
                             break;
 
                         case 3:
+                            Console.Clear();
+                            MenuFunctions.SetConsolesList();
+                            Console.WriteLine("The following genres are currently available in the library:");
+                            Console.WriteLine("------------------------------------------------------------");
+                            MenuFunctions.PrintListOfTableItems(Menus.consolesList);
+                            Console.WriteLine();
+                            Console.WriteLine("Press the Enter-key to exit/continue.");
+                            Console.ReadLine();
+                            Console.Clear();
                             break;
 
                         case 4:
@@ -173,21 +190,21 @@ internal class Program
                     {
                         case 1:
                             Console.Clear();
-                            MenuFunctions.SetGenreList();
-                            MenuFunctions.AddGenreToLibrary();
+                            MenuFunctions.SetGenresList();
+                            MenuFunctions.CallAndCheckGenreToDB();
                             break;
 
                         case 2:
                             MenuFunctions.currentOption = 1;
                             Console.Clear();
-                            MenuFunctions.SetGenreList();
+                            MenuFunctions.SetGenresList();
                             MenuFunctions.inSubMenu = false;
                             MenuFunctions.inSecondSubMenu = true;
                             break;
 
                         case 3:
                             Console.Clear();
-                            MenuFunctions.SetGenreList();
+                            MenuFunctions.SetGenresList();
                             Console.WriteLine("The following genres are currently available in the library:");
                             Console.WriteLine("------------------------------------------------------------");
                             MenuFunctions.PrintListOfTableItems(Menus.genreList);
