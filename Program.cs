@@ -188,6 +188,8 @@ internal class Program
                         case 3:
                             Console.Clear();
                             MenuFunctions.SetGenreList();
+                            Console.WriteLine("The following genres are currently available in the library:");
+                            Console.WriteLine("------------------------------------------------------------");
                             MenuFunctions.PrintListOfTableItems(Menus.genreList);
                             Console.WriteLine();
                             Console.WriteLine("Press the Enter-key to exit/continue.");
