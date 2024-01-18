@@ -21,7 +21,7 @@ class SqlFunctions
     public static IEnumerable<dynamic> GetAllConsolesFromDB()
     {
         Open();
-        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT ConsoleName AS ColumnName FROM Consoles;");
+        IEnumerable<dynamic> results = connection.Query<dynamic>("SELECT Consoles.ConsoleName AS 'ColumnName', Manufacturer.ManufacturerName AS 'Manufacturer' FROM Consoles INNER JOIN Manufacturer ON Consoles.ManufacturerID = Manufacturer.ManufacturerID;");
         return results;
     }
     public static IEnumerable<dynamic> GetAllGenresFromDB()
@@ -54,7 +54,7 @@ class SqlFunctions
         string optionToRemove = Menus.genreList[currentOption - 1];
         Console.Clear();
         connection.Execute($"DELETE FROM Genres WHERE GenreName = @OptionToRemove;", new { OptionToRemove = optionToRemove });
-        Console.WriteLine($"{optionToRemove} was successfully deleted from the list of genres! Press Enter to continue.");
+        Console.WriteLine($"\"{optionToRemove}\" was successfully deleted from the list of genres! Press Enter to continue.");
         Console.ReadLine();
     }
     public static void AddConsoleToDatabase(string userInput)

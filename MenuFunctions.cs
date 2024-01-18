@@ -73,7 +73,7 @@ class MenuFunctions
         List<string> tempList = new();
         foreach (var row in results)
         {
-            tempList.Add($"{row.ColumnName}");
+            tempList.Add($"{row.ColumnName} - {row.Manufacturer}");
         }
         Menus.consoleList = tempList.ToArray();
     }
