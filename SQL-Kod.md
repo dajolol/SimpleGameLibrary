@@ -1,5 +1,5 @@
 INNER JOIN för Consoles-table
------------------------------------------------------
+--------------------------------------------------------------------
 SELECT ConsoleName, ManufacturerName
 FROM Consoles
 INNER JOIN Manufacturer
