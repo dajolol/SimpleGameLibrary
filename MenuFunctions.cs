@@ -49,7 +49,7 @@ class MenuFunctions
             }
             else
             {
-                Console.WriteLine($"{currentMenu[i - 1]}  \u001b[0m");
+                Console.WriteLine($"  {currentMenu[i - 1]}  \u001b[0m");
             }
         }
     }
