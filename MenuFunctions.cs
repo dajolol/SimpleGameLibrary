@@ -88,31 +88,25 @@ class MenuFunctions
         }
         Menus.genreList = tempList.ToArray();
     }
-    public static void CallAndCheckConsoleToDB()
+    public static void CheckIfInputToDbIsEmpty(string categoryString)
     {
-        Console.Write("Write the name of the console you want to add: ");
+        Console.Write($"Write the {categoryString} of the genre you want to add: ");
         string userInput = Console.ReadLine();
         while (string.IsNullOrEmpty(userInput))
         {
             Console.Clear();
-            Console.WriteLine("The console name must contain atleast one character!");
-            Console.Write("Write the name of the console you want to add: ");
+            Console.WriteLine($"The genre {categoryString} must contain atleast one character!");
+            Console.Write($"Write the {categoryString} of the genre you want to add: ");
             userInput = Console.ReadLine();
         }
-        SqlFunctions.AddConsoleToDatabase(userInput);
-    }
-    public static void CallAndCheckGenreToDB()
-    {
-        Console.Write("Write the name of the genre you want to add: ");
-        string userInput = Console.ReadLine();
-        while (string.IsNullOrEmpty(userInput))
+        if (currentSubMenu == Menus.handleGenresMenu)
         {
-            Console.Clear();
-            Console.WriteLine("The genre name must contain atleast one character!");
-            Console.Write("Write the name of the genre you want to add: ");
-            userInput = Console.ReadLine();
+            SqlFunctions.AddGenreToDatabase(userInput);
         }
-        SqlFunctions.AddGenreToDatabase(userInput);
+        else if (currentSubMenu == Menus.handleConsolesMenu)
+        {
+            SqlFunctions.AddConsoleToDatabase(userInput);
+        }
     }
 
 }

@@ -146,7 +146,7 @@ internal class Program
                         case 1:
                             Console.Clear();
                             MenuFunctions.SetConsolesList();
-                            MenuFunctions.CallAndCheckConsoleToDB();
+                            MenuFunctions.CheckIfInputToDbIsEmpty("console");
                             break;
 
                         case 2:
@@ -191,7 +191,7 @@ internal class Program
                         case 1:
                             Console.Clear();
                             MenuFunctions.SetGenresList();
-                            MenuFunctions.CallAndCheckGenreToDB();
+                            MenuFunctions.CheckIfInputToDbIsEmpty("genre");
                             break;
 
                         case 2:

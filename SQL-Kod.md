@@ -11,3 +11,16 @@ FROM Consoles
 INNER JOIN Manufacturer
 ON Consoles.ManufacturerID = Manufacturer.ManufacturerID;
 --------------------------------------------------------------------
+
+
+Console-table query
+--------------------------------------------------------------------
+INSERT INTO Consoles(ConsoleName) VALUES (@UserInput)
+--------------------------------------------------------------------
+DELETE FROM Consoles WHERE ConsoleName = @OptionToRemove;
+--------------------------------------------------------------------
+
+
+Genre-table query
+--------------------------------------------------------------------
+
