@@ -1,4 +1,9 @@
-INNER JOIN för Consoles-table
+
+Console-table query
+--------------------------------------------------------------------
+INSERT INTO Consoles(ConsoleName) VALUES (@UserInput)
+--------------------------------------------------------------------
+DELETE FROM Consoles WHERE ConsoleName = @OptionToRemove;
 --------------------------------------------------------------------
 SELECT ConsoleName, ManufacturerName
 FROM Consoles
@@ -13,14 +18,10 @@ ON Consoles.ManufacturerID = Manufacturer.ManufacturerID;
 --------------------------------------------------------------------
 
 
-Console-table query
---------------------------------------------------------------------
-INSERT INTO Consoles(ConsoleName) VALUES (@UserInput)
---------------------------------------------------------------------
-DELETE FROM Consoles WHERE ConsoleName = @OptionToRemove;
---------------------------------------------------------------------
-
 
 Genre-table query
 --------------------------------------------------------------------
-
+SELECT GenreName AS ColumnName FROM Genres;
+--------------------------------------------------------------------
+DELETE FROM Genres WHERE GenreName = @OptionToRemove;
+--------------------------------------------------------------------

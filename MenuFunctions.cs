@@ -90,13 +90,13 @@ class MenuFunctions
     }
     public static void CheckIfInputToDbIsEmpty(string categoryString)
     {
-        Console.Write($"Write the {categoryString} of the genre you want to add: ");
+        Console.Write($"Write the name of the {categoryString} you want to add: ");
         string userInput = Console.ReadLine();
         while (string.IsNullOrEmpty(userInput))
         {
             Console.Clear();
-            Console.WriteLine($"The genre {categoryString} must contain atleast one character!");
-            Console.Write($"Write the {categoryString} of the genre you want to add: ");
+            Console.WriteLine($"The name of the {categoryString} must contain atleast one character!");
+            Console.Write($"Write the name of the {categoryString} you want to add: ");
             userInput = Console.ReadLine();
         }
         if (currentSubMenu == Menus.handleGenresMenu)
