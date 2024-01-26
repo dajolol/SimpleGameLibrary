@@ -25,3 +25,8 @@ SELECT GenreName AS ColumnName FROM Genres;
 --------------------------------------------------------------------
 DELETE FROM Genres WHERE GenreName = @OptionToRemove;
 --------------------------------------------------------------------
+SELECT VideoGames.Title, Genres.GenreName
+FROM VideoGame_Genre
+INNER JOIN VideoGames ON VideoGames.VideoGameID = VideoGame_Genre.VideoGameID
+INNER JOIN Genres ON Genres.GenreID = VideoGame_Genre.GenreID;
+--------------------------------------------------------------------
